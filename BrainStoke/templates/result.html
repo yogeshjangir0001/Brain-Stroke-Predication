@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Brain Stroke Prediction
+    </title>
+    <style>
+        /* Center the login form */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #ccebff, #e6ebff);
+    background-size: cover;
+}
+
+.b_title {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(34, 26, 63);
+    font-weight: 530;
+}
+
+.b_title1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: #737373;
+    font-weight: 400;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.container {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 650px;
+    padding: 28px;
+    margin: 0 28px;
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 100px;
+}
+
+.class_size {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.class_size:nth-child(2n) {
+    justify-content: end;
+}
+
+.user_info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.user_info label {
+    width: 95%;
+    color: rgb(34, 26, 63);
+    font-size: 15px;
+    font-weight: 400;
+    margin: 5px 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.user_info input {
+    height: 30px;
+    width: 95%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid gray;
+    padding: 0 10px;
+}
+
+.user_info select {
+    height: 30px;
+    width: 95%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid gray;
+    padding: 0 10px;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.submit_button {
+    width: 150px;
+    height: 30px;
+    background: rgb(0, 13, 255);
+    color: white;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+.submit_button:hover{
+    background-color: rgb(0, 140, 255);
+}
+</style>
+</head>
+
+<body>
+    <div class="continer1">
+        <h1 class="b_title">Brain Stroke Prediction</h1>
+        <h2 class="b_title1">Predict the probability of brain stroke disease</h2>
+        <div class="container">
+            <form id="stroke-form" action="/predict" method="POST">
+                <div class="class_size">
+                    <div class="user_info">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" required><br><br>
+                    </div>
+                    <div class="user_info">
+                        <label for="bmi">BMI:</label>
+                        <input type="number" id="bmi" name="bmi" required><br><br>
+                    </div>
+                    <div class="user_info">
+                        <label for="avg-glucose-level">Average Glucose Level:</label>
+                        <input type="number" id="avg-glucose-level" name="avg_glucose_level" required><br><br>
+                    </div>
+                    <div class="user_info">
+                        <label  for="gender" class="box_size">
+                            Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select><br>
+                    </div>
+                    <div class="user_info">
+                        <label for="heart-disease">Heart Disease:</label>
+                            <select id="heart-disease" name="heart_disease" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select><br><br>
+                    </div>
+                    <div class="user_info">
+                        <label for="hypertension">Hypertension:</label>
+                        <select id="hypertension" name="hypertension" required>
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                        </select><br><br>             
+                    </div>
+                    <div class="user_info">
+                        <label for="ever-married">Ever Married:</label>
+                                <select id="ever-married" name="ever_married" required>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select><br><br>
+                    </div>
+                    <div class="user_info">
+                    <label for="residence-type">Residence Type:</label>
+                    <select id="residence-type" name="residence_type" required>
+                      <option value="0">Rural</option>
+                      <option value="1">Urban</option>
+                    </select><br><br>
+                    
+                    </div>
+                    <div class="user_info">
+                        <label for="work-type">Work Type:</label>
+                            <select id="work-type" name="work_type" required>
+                                <option value="1">Private</option>
+                                <option value="2">Self-employed</option>
+                                <option value="3">Govt_job</option>
+                                <option value="4">Never_worked</option>
+                            </select><br><br>
+                    </div>
+                    <div class="user_info">
+                        <label for="smoking_status" class="box_size">
+                            Smoking Status </label>
+                            <select id="smoking_status" name="smoking_status" required>
+                                <option value="1">Unknown</option>
+                                <option value="2">Never smoked</option>
+                                <option value="3">Formerly smoked</option>
+                                <option value="4">Smokes</option>
+                            </select><br>
+                    </div>
+                </div>
+                <div  class="parent">
+                    <input type = "submit" class="submit_button" value = "Predict"></input>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
